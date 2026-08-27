@@ -1,0 +1,9 @@
+[Unit]
+Description=Weekday 7:30 MSK trigger for content-factory publisher
+
+[Timer]
+OnCalendar=Mon..Fri 04:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

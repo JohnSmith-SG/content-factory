@@ -1,0 +1,23 @@
+# --- Секреты: никогда не коммитить ---
+.claude/secrets/
+*.key
+*.token
+*.env
+!*.env.example
+
+# Локальные операционные файлы (машина/сервер, не часть продукта)
+.claude/settings.local.json
+.claude/scripts/vps.env
+.claude/scripts/*.bak
+.claude/deploy.local.md
+.claude/last-comment-review.json
+
+# Рабочие и черновые файлы
+tmp/
+memory/
+notes/
+
+# ОС
+Thumbs.db
+.DS_Store
+desktop.ini

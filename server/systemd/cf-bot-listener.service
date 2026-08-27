@@ -1,0 +1,16 @@
+[Unit]
+Description=Content-factory Telegram bot listener (English-version opt-in + button)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cfbot
+Group=cfbot
+WorkingDirectory=/opt/content-factory
+ExecStart=/usr/bin/python3 /opt/content-factory/bot_listener.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

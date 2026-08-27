@@ -1,0 +1,11 @@
+[Unit]
+Description=Content-factory scheduled Telegram publisher (mechanical, no AI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=cfbot
+Group=cfbot
+WorkingDirectory=/opt/content-factory
+ExecStart=/usr/bin/python3 /opt/content-factory/publish.py
