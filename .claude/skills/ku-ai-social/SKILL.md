@@ -53,6 +53,13 @@ description: Превращает одну статью или новость н
 2026 года с целым разделом статистики по ИИ в корпоративном управлении.
 Этот пост стал первым в очереди публикации именно поэтому.
 
+Формально это правило оформлено как **fast-track** (см. поле `priority`
+ниже и `context/sources.md`, раздел «Правило fast-track»): свежий
+первоисточник первого эшелона + первичные данные (а не мнение/анонс) →
+`"priority": "fast-track"`, и пост встаёт в начало очереди, а не в хвост.
+Оценивает fast-track `content-researcher`; поле ортогонально `status` —
+fast-track пост всё равно идёт `draft → reviewed → approved → published`.
+
 Имя файла:
 
 ```text
@@ -75,6 +82,22 @@ YYYY-MM-DD-news-slug-social-content.json
   }
 }
 ```
+
+Верхний уровень также содержит поля приоритезации очереди:
+
+```json
+{
+  "priority": "normal",
+  "priority_reason": "чем пост проходит порог — только при fast-track"
+}
+```
+
+- `"priority"` — `"normal"` (по умолчанию) либо `"fast-track"`. `fast-track`
+  ставит пост следующим на публикацию, а не в хвост очереди — порог из
+  6 пунктов см. в `context/sources.md`, раздел «Правило fast-track».
+  Оценивает `content-researcher` по дате и эшелону первоисточника.
+- `"priority_reason"` — строка, обязательна при `fast-track`: свежесть,
+  эшелон источника, характер первичных данных. Для `normal` не нужна.
 
 ## Базовый стиль
 
@@ -212,6 +235,9 @@ A timely question worth sitting with right now — not just for the board, but f
 ```json
 {
   "schema_version": "social-content/v1",
+  "status": "draft",
+  "priority": "fast-track",
+  "priority_reason": "первоисточник — регулятор ЕС, опубликован 18 часов назад; формальное регуляторное действие",
   "source": {
     "title": "EU requires AI risk disclosure in board annual reports",
     "url": "https://example.com/eu-ai-board-disclosure",
