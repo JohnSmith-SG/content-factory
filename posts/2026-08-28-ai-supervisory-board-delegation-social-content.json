@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-08-28",
   "source": {
     "title": "NACD Quarterly Survey: Q2 2026 - Public Company",
     "url": "https://www.nacdonline.org/all-governance/governance-resources/governance-surveys/surveys-benchmarking/nacd-quarterly-survey-q2-2026---public-company/",
