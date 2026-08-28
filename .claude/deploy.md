@@ -96,6 +96,29 @@ vps.sh ssh "tail -n 30 /opt/content-factory/logs/publish.log"
 параметр `start` в deep link ограничен 64 символами. Заполняет сам
 `publish.py` при публикации.
 
+## Карточка актуального поста на карьерном сайте (AI:stack)
+
+Раздел AI:stack на `tsurtsumiya.netlify.app` показывает «живую» карточку
+последнего опубликованного поста канала. Данные для неё лежат в **секретном
+GitHub Gist**, файл `latest.json` (id `dc74543025fd9d12733280b8e4686830`,
+владелец `JohnSmith-SG`); карьерный сайт читает его по raw-URL при загрузке
+страницы (CORS `*`), без перевыкладки сайта.
+
+- `publish.py` после успешной публикации патчит gist — функция
+  `update_career_card()` шлёт `PATCH https://api.github.com/gists/<id>` с
+  полями `date / title / excerpt / image / link / en`.
+- Токен для патча — **fine-grained PAT, права только Gists: Read and write**,
+  на сервере в `/opt/content-factory/secrets/github_gist.token` (chmod 600,
+  chown `cfbot:cfbot`), в git не хранится.
+- Если файла токена нет — `publish.py` пишет в лог
+  `gist token missing, skipping career-card update` и продолжает; сбой
+  запроса тоже только логируется (`WARNING: career-card gist update failed`)
+  и не роняет публикацию.
+- `image` в payload указывает на картинку в ветке `main` GitHub-репозитория
+  (`raw.githubusercontent.com/.../images/<basename>.jpg`) — картинка поста
+  должна быть в `main` **до** публикации, иначе на карточке она не
+  загрузится (карточка тогда деградирует до текстовой, это штатно).
+
 ## Сбор комментариев на самообучение
 
 Комментарии подписчиков (прошедшие модерацию) `bot_listener.py` пишет в

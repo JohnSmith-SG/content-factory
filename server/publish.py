@@ -26,6 +26,10 @@ ID_MAP_FILE = os.path.join(BASE, "id_map.json")
 CHAT_ID = "@ai_pro_cg"          # публичный канал
 BOT_USERNAME = "ai_pro_cg_bot"  # для deep link кнопки «English version»
 
+# карточка актуального поста на карьерном сайте (tsurtsumiya.netlify.app, раздел AI:stack)
+GIST_ID = "dc74543025fd9d12733280b8e4686830"
+GIST_TOKEN_FILE = os.path.join(BASE, "secrets", "github_gist.token")
+
 def short_id_for(filename):
     return hashlib.sha256(filename.encode("utf-8")).hexdigest()[:10]
 
@@ -57,6 +61,45 @@ def build_caption_and_followup(text):
     caption = f"<b>{esc(title)}</b>\n\n{esc(first)}\n\n\U0001F447 Продолжение"
     followup = "⠀\n\n" + "\n\n".join(esc(p) for p in rest)
     return caption, followup
+
+def update_career_card(post, post_date, basename, message_id, text):
+    """Обновляет секретный gist latest.json — источник данных для «живой» карточки
+    актуального поста в разделе AI:stack на карьерном сайте.
+    Никогда не бросает исключение: сбой обновления не должен ронять публикацию."""
+    try:
+        if not os.path.exists(GIST_TOKEN_FILE):
+            log("gist token missing, skipping career-card update")
+            return
+        gist_token = open(GIST_TOKEN_FILE, encoding="utf-8").read().strip()
+
+        paras = text.split("\n\n")
+        title = paras[0]
+        second = paras[1] if len(paras) > 1 else ""
+        excerpt = second[:220] + ("…" if len(second) > 220 else "")
+
+        payload = {
+            "date": post_date.isoformat(),
+            "title": title,
+            "excerpt": excerpt,
+            "image": f"https://raw.githubusercontent.com/JohnSmith-SG/content-factory/main/images/{basename.replace('-social-content', '')}.jpg",
+            "link": f"https://t.me/ai_pro_cg/{message_id}",
+            "en": bool(post.get("platforms", {}).get("facebook", {}).get("content")),
+        }
+        body = json.dumps({
+            "files": {"latest.json": {"content": json.dumps(payload, ensure_ascii=False, indent=2)}}
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            f"https://api.github.com/gists/{GIST_ID}", data=body, method="PATCH"
+        )
+        req.add_header("Authorization", f"token {gist_token}")
+        req.add_header("Accept", "application/vnd.github+json")
+        req.add_header("User-Agent", "content-factory")
+        req.add_header("Content-Type", "application/json")
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            log(f"career-card gist updated (HTTP {resp.status})")
+    except Exception as e:
+        log(f"WARNING: career-card gist update failed: {e}")
+
 
 def api_call(token, method, data=None, files=None):
     url = f"https://api.telegram.org/bot{token}/{method}"
@@ -154,6 +197,8 @@ def main():
 
     link = f"https://t.me/ai_pro_cg/{resp1['result']['message_id']}"
     log(f"Published successfully: {link}")
+
+    update_career_card(post, post_date, basename, resp1["result"]["message_id"], text)
 
     shutil.move(post_path, os.path.join(SENT_DIR, os.path.basename(post_path)))
     shutil.move(image_path, os.path.join(SENT_DIR, os.path.basename(image_path)))
