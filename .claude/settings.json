@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bash \"${CLAUDE_PROJECT_DIR:-.}/.claude/hooks/session-entry-sync.sh\"",
+            "timeout": 90,
+            "statusMessage": "content-factory: синхронизация очереди с сервером"
+          }
+        ]
+      }
+    ]
+  }
+}
