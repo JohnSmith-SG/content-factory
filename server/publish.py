@@ -26,7 +26,7 @@ ID_MAP_FILE = os.path.join(BASE, "id_map.json")
 CHAT_ID = "@ai_pro_cg"          # публичный канал
 BOT_USERNAME = "ai_pro_cg_bot"  # для deep link кнопки «English version»
 
-# карточка актуального поста на карьерном сайте (tsurtsumiya.netlify.app, раздел AI:stack)
+# карточка актуального поста на карьерном сайте (oleg-tsurtsumiya.ru, раздел AI:stack)
 GIST_ID = "dc74543025fd9d12733280b8e4686830"
 GIST_TOKEN_FILE = os.path.join(BASE, "secrets", "github_gist.token")
 

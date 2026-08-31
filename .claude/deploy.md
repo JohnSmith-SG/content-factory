@@ -98,7 +98,7 @@ vps.sh ssh "tail -n 30 /opt/content-factory/logs/publish.log"
 
 ## Карточка актуального поста на карьерном сайте (AI:stack)
 
-Раздел AI:stack на `tsurtsumiya.netlify.app` показывает «живую» карточку
+Раздел AI:stack на `oleg-tsurtsumiya.ru` показывает «живую» карточку
 последнего опубликованного поста канала. Данные для неё лежат в **секретном
 GitHub Gist**, файл `latest.json` (id `dc74543025fd9d12733280b8e4686830`,
 владелец `JohnSmith-SG`); карьерный сайт читает его по raw-URL при загрузке
