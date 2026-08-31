@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-08-31",
   "source": {
     "title": "Внедрение информационных технологий и искусственного интеллекта в практику корпоративного управления: количественное исследование",
     "url": "https://nokc.org.ru/wp-content/uploads/2023/12/vnedrenie-informacionnyh-tehnologij-i-iskusstvennogo-intellekta-v-praktiku-korporativnogo-upravleniya.pdf",
