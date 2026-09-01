@@ -40,8 +40,13 @@
   `getChatMember` и присылает английский текст в личку) и модерирует
   комментарии в группе-обсуждении (удаляет комментарии неподписчиков).
 
-Исходники — в `server/` этого репозитория (`publish.py`,
-`bot_listener.py`, `systemd/`). На сервере они лежат в `/opt/content-factory/`.
+- `metrics_report.py` — read-only, по запросу (не сервис): печатает живое
+  число подписчиков + историю снимков из `logs/metrics.jsonl`. Снимки раз
+  в сутки пишет сам `bot_listener.py` (см. `daily_metrics_snapshot`).
+  Используется скиллом `/channel-report`.
+
+Исходники — в `server/` этого репозитория (`publish.py`, `bot_listener.py`,
+`metrics_report.py`, `systemd/`). На сервере они лежат в `/opt/content-factory/`.
 
 ## Развернуть с нуля
 
@@ -52,8 +57,8 @@
    и группы-обсуждения (право удаления сообщений).
 2. На сервере: `useradd`, папка `/opt/content-factory/`, подпапки, положить
    токен в `secrets/telegram_bot.token` (chmod 600, chown cfbot).
-3. Скопировать `server/publish.py`, `server/bot_listener.py` в
-   `/opt/content-factory/`.
+3. Скопировать `server/publish.py`, `server/bot_listener.py`,
+   `server/metrics_report.py` в `/opt/content-factory/`.
 4. Скопировать `server/systemd/*` в `/etc/systemd/system/`,
    `systemctl daemon-reload`, `enable --now cf-publish.timer
    cf-bot-listener.service`.

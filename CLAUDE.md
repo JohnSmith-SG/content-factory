@@ -290,6 +290,28 @@ version», — всегда двуязычное (русский абзац, з�
 `content-factory/**` и на `vps.sh` / `session-entry-sync.sh` (список — в
 шапке скилла `cf-daily` и в инструкции по установке).
 
+# Метрики канала (с 2026-09-01)
+
+Понять «происходит ли что-нибудь» — команда **`/channel-report`** (скилл
+`.claude/skills/channel-report/`), аналог `/site-report`, но для канала.
+
+- **Сбор — автоматический.** `bot_listener.py` раз в сутки (при смене даты
+  UTC, в общем цикле long polling) пишет снимок `{date, ts, subscribers}`
+  в `/opt/content-factory/logs/metrics.jsonl` — `getChatMemberCount` по
+  `@ai_pro_cg`. Отдельного systemd-юнита нет, ряд без пропусков.
+- **Отчёт — по запросу.** `/channel-report` тянет `metrics_report.py` с
+  сервера (живое число + история) и `collect-channel-metrika.ps1`
+  (переходы сайт↔канал из Метрики: цель `click_channel` и источник
+  Telegram). Сохраняет один свежий файл в `content-factory/reports/`
+  (папка в `.gitignore`).
+- **Вовлечённость** (реакции, комментарии, english-клики) в этот отчёт
+  сознательно не входит — идёт через разбор комментариев (`content-pipeline`
+  Шаг 0).
+- Токен Метрики переиспользуется из `Career/.claude/secrets/` (тот же
+  счётчик 111567095, что у сайта; `click_channel` теперь читают оба отчёта).
+- `server/metrics_report.py` — тоже часть развёртывания VPS, деплоится
+  рядом с `bot_listener.py` (см. `.claude/deploy.md`).
+
 # Права в этом проекте
 
 Файлы внутри репозитория можно создавать, редактировать и удалять без

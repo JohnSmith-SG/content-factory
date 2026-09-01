@@ -31,6 +31,7 @@ ID_MAP_FILE = os.path.join(BASE, "id_map.json")
 OFFSET_FILE = os.path.join(BASE, "update_offset.txt")
 LOG_FILE = os.path.join(BASE, "logs", "bot_listener.log")
 COMMENTS_LOG_FILE = os.path.join(BASE, "logs", "comments_for_review.jsonl")
+METRICS_FILE = os.path.join(BASE, "logs", "metrics.jsonl")
 # --- настройки развёртывания: подставить свои перед запуском на сервере ---
 CHANNEL = "@ai_pro_cg"                 # публичный канал
 DISCUSSION_GROUP_ID = -100_0000000000  # id связанной группы-обсуждения
@@ -77,6 +78,51 @@ def get_offset():
 def save_offset(offset):
     with open(OFFSET_FILE, "w") as f:
         f.write(str(offset))
+
+
+_last_metrics_date = None
+
+
+def _last_snapshot_date():
+    if not os.path.exists(METRICS_FILE):
+        return None
+    try:
+        last = ""
+        with open(METRICS_FILE, encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    last = line
+        return json.loads(last).get("date") if last else None
+    except Exception:
+        return None
+
+
+def daily_metrics_snapshot():
+    """Once per UTC day append the channel subscriber count to metrics.jsonl.
+    A cheap no-op on every other poll iteration. Never raises -- metrics must
+    not be able to knock the listener over."""
+    global _last_metrics_date
+    today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    if _last_metrics_date is None:
+        _last_metrics_date = _last_snapshot_date()
+    if _last_metrics_date == today:
+        return
+    try:
+        resp = api_call("getChatMemberCount", {"chat_id": CHANNEL})
+        if not resp.get("ok"):
+            log(f"metrics snapshot: getChatMemberCount not ok: {resp}")
+            return
+        entry = {
+            "date": today,
+            "ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "subscribers": resp["result"],
+        }
+        with open(METRICS_FILE, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        _last_metrics_date = today
+        log(f"metrics snapshot {today}: subscribers={resp['result']}")
+    except Exception as e:
+        log(f"metrics snapshot error: {e}")
 
 
 def is_subscribed(user_id):
@@ -211,6 +257,7 @@ def poll_loop():
     log("Bot listener started.")
     offset = get_offset()
     while True:
+        daily_metrics_snapshot()
         try:
             resp = api_call("getUpdates", {"offset": offset, "timeout": 30})
         except Exception as e:
