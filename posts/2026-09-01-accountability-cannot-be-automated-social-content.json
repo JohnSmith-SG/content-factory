@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-01",
   "source": {
     "title": "How Boards Can Lead in a World Remade by AI",
     "url": "https://corpgov.law.harvard.edu/2026/02/19/how-boards-can-lead-in-a-world-remade-by-ai/",
