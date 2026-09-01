@@ -18,6 +18,10 @@ memory/
 notes/
 reports/
 
+# Python
+__pycache__/
+*.pyc
+
 # ОС
 Thumbs.db
 .DS_Store
