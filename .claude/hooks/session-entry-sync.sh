@@ -152,6 +152,20 @@ if os.path.exists(clog):
         if not last or ts > last:
             new += 1
 print(f"новых комментариев с прошлой проверки: {new}" + ("  !! разобрать (Шаг 0)" if new else ""))
+
+# погасить глобальное ежедневное напоминание на сегодня — пользователь уже
+# в проекте (см. ~/.claude/hooks/cf-daily-trigger.sh). Назавтра проверка
+# посчитает заново.
+_cd = os.path.expanduser("~/.claude")
+try:
+    with open(os.path.join(_cd, ".cf-daily-stamp"), "w") as _f:
+        _f.write(today.isoformat())
+    for _n in (".cf-daily-pending", ".cf-daily-status"):
+        _p = os.path.join(_cd, _n)
+        if os.path.exists(_p):
+            os.remove(_p)
+except Exception:
+    pass
 PY
 
 log "=== конец синхронизации; дальше — по скиллу content-pipeline ==="
