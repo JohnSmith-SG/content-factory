@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-03",
   "source": {
     "title": "AI in the Boardroom: Q2 2026 Director Confidence Findings",
     "url": "https://www.diligent.com/resources/blog/dci-board-ai-use-2026",
