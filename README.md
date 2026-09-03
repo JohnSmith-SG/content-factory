@@ -86,13 +86,17 @@ flowchart LR
 ## Быстрый старт (локально)
 
 Нужен [Claude Code](https://claude.com/claude-code) и MCP-сервер
-[fal.ai](https://fal.ai) для генерации картинок.
+[fal.ai](https://fal.ai) для генерации картинок. Сервер описан в `.mcp.json`;
+ключ в файл не пишется — берётся из переменной окружения `FAL_KEY`.
 
 ```bash
 git clone <этот-репозиторий>
 cd content-factory
-# положить ключ fal.ai в .claude/secrets/fal.key
-claude
+# ключ fal.ai положить в .claude/secrets/fal.key (в git не идёт)
+# и пробросить в окружение перед запуском, напр. в профиле оболочки:
+#   PowerShell: $env:FAL_KEY = (Get-Content .claude/secrets/fal.key -Raw).Trim()
+#   bash:       export FAL_KEY="$(cat .claude/secrets/fal.key)"
+claude   # при первом запуске одобрить MCP-сервер из .mcp.json
 ```
 
 В сессии Claude Code:
