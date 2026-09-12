@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-09",
   "source": {
     "title": "What Directors Think 2026",
     "url": "https://www.diligent.com/resources/research/wdt-2026",

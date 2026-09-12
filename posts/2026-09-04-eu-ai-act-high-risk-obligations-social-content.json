@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-04",
   "priority": "normal",
   "source": {
     "title": "EU AI Act — obligations for high-risk AI systems (Annex III) become applicable from 2 August 2026",

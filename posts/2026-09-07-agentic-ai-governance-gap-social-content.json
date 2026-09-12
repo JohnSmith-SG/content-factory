@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-07",
   "source": {
     "title": "AI Governance for Private Companies",
     "url": "https://corpgov.law.harvard.edu/2026/08/21/ai-governance-for-private-companies/",
