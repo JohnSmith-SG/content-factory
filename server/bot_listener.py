@@ -185,9 +185,22 @@ def moderate_comment(msg):
     it's always a legitimate comment worth logging -- never delete it, and
     don't skip it just because it looks bot-shaped.
 
-    Legitimate subscriber comments (including anonymous-admin ones) get
-    logged for later review (see log_comment_for_review) -- this is the
-    raw material for the self-improvement mechanism discussed 2026-08-27.
+    A second, distinct pseudo-sender case (found 2026-09-13, after a
+    channel-owner comment from 2026-09-10 went completely unlogged): when
+    the channel owner comments "as the channel" (Telegram's option under
+    the channel's own avatar in a linked discussion group, not the group's
+    "remain anonymous" toggle), the message carries `sender_chat` pointing
+    at the channel itself, while `from` is Telegram's own pseudo-bot
+    account (is_bot=True). The plain `is_bot` check below would otherwise
+    silently drop it as "just some other bot" -- no log entry, no
+    deletion, nothing in the service journal, which is exactly what made
+    that comment invisible. Must be checked before the is_bot check, not
+    folded into the GroupAnonymousBot branch (different pseudo-account).
+
+    Legitimate subscriber comments (including both pseudo-account cases)
+    get logged for later review (see log_comment_for_review) -- this is
+    the raw material for the self-improvement mechanism discussed
+    2026-08-27.
     """
     from_user = msg.get("from")
     if not from_user:
@@ -195,6 +208,10 @@ def moderate_comment(msg):
     if msg.get("is_automatic_forward"):
         return  # the channel post copy itself, not a comment
     if from_user.get("username") == "GroupAnonymousBot":
+        log_comment_for_review(msg, from_user, is_anonymous_admin=True)
+        return
+    sender_chat = msg.get("sender_chat")
+    if sender_chat and sender_chat.get("type") == "channel":
         log_comment_for_review(msg, from_user, is_anonymous_admin=True)
         return
     if from_user.get("is_bot"):
