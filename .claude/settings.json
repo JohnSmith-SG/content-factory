@@ -1,4 +1,10 @@
 {
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash commands that invoke .claude/scripts/vps.sh (e.g. `bash .claude/scripts/vps.sh put ...` or `bash .claude/scripts/vps.sh ssh \"...\"`) in the content-factory project are pre-authorized routine deploy/maintenance actions on this project's own VPS -- covers file uploads (queue sync, code deploys) and remote commands (chown, systemctl restart/status, journalctl, diagnostics). Allow without extra confirmation; this is not an unreviewed production deploy, it's the project's standard, already-permissioned deploy path."
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {
