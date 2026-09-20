@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-18",
   "priority": "normal",
   "source": {
     "title": "Seven Questions Boards Should Ask After the 2026 Proxy Season",

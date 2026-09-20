@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-14",
   "priority": "normal",
   "source": {
     "title": "NACD 2026 Governance Outlook: Boards Prioritize Strategic Execution, Technology and People Heading into 2026",
