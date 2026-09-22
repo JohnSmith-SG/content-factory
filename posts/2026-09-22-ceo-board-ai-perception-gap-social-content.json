@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-22",
   "priority": "normal",
   "source": {
     "title": "Sixty-One Percent of CEOs Say Their Boards Are Rushing AI Transformation (пресс-релиз BCG по опросу «Split Decisions: The BCG CEOs and Boards Survey», первый выпуск)",
