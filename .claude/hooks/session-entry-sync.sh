@@ -102,6 +102,12 @@ import json, os, sys, glob, datetime
 repo, qcount = sys.argv[1], sys.argv[2]
 now = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=3)
 today = now.date()
+# Слот публикации — 7:30 МСК. Сегодняшний пост, для которого это время ещё
+# не наступило, — НЕ пропущенный слот (баг 2026-09-23: раньше этот порог не
+# проверялся, из-за чего сегодняшний ещё не наступивший approved-пост всегда
+# попадал в "пропущенные/наступившие" с полуночи, что привело к ошибочной
+# ручной публикации на 6 часов раньше расписания).
+slot_due_today = (now.hour, now.minute) >= (7, 30)
 print(f"сейчас по Москве: {now:%Y-%m-%d %H:%M} ({['пн','вт','ср','чт','пт','сб','вс'][today.weekday()]})")
 
 approved_future = []
@@ -118,7 +124,7 @@ for path in sorted(glob.glob(os.path.join(repo, "posts", "*.json"))):
             st = json.load(f).get("status")
     except Exception:
         continue
-    if st != "published" and d <= today and d.weekday() < 5:
+    if st != "published" and d.weekday() < 5 and (d < today or (d == today and slot_due_today)):
         missed.append(name)
     if st == "approved" and d > today and d.weekday() < 5:
         approved_future.append(name)
