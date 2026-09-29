@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-28",
   "priority": "normal",
   "source": {
     "title": "The State of AI Adoption in Ethics & Compliance — The Cobbler's Children (Ethisphere и Ethena)",

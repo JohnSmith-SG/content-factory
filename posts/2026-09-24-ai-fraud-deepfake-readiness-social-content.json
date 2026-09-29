@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-09-24",
   "priority": "normal",
   "source": {
     "title": "2026 Anti-Fraud Technology Benchmarking Report (ACFE и SAS) — пресс-релиз «Study: Deepfake fraud surges – and only 7% of organizations are firmly ready»",
