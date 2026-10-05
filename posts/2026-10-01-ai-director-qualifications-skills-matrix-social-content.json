@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-01",
   "priority": "normal",
   "source": {
     "title": "Cyber and AI Oversight Disclosures: What Companies Shared in 2025",

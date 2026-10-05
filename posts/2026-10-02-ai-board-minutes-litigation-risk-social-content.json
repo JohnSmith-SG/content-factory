@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-02",
   "priority": "normal",
   "source": {
     "title": "AI Drafting Board Minutes? Hold Up, Wait a Minute. It's Complicated",

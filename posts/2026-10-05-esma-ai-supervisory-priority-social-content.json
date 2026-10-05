@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-05",
   "priority": "normal",
   "source": {
     "title": "ESMA sets new supervisory priority on digital innovation from 2027 (пресс-релиз ESMA) + Union strategic supervisory priorities (USSPs) — factsheet",
