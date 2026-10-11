@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-09",
   "priority": "normal",
   "source": {
     "title": "PwC 2026 Annual Corporate Directors Survey (PwC Governance Insights Center) — пресс-релиз «2026 Annual Corporate Directors Survey»",

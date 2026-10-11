@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-06",
   "priority": "normal",
   "source": {
     "title": "PSC Launches Inquiry into the Use of Artificial Intelligence by New York [utilities] — пресс-релиз и приказ New York Public Service Commission, дело 26-M-0552",
