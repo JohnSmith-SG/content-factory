@@ -48,6 +48,19 @@
 Исходники — в `server/` этого репозитория (`publish.py`, `bot_listener.py`,
 `metrics_report.py`, `systemd/`). На сервере они лежат в `/opt/content-factory/`.
 
+**Сосед на сервере (не часть content-factory):** с 2026-10-13 здесь же работает
+бот-нутрициолог из курса vibe-coding — пользователь `nutribot`, папка
+`/opt/nutricio-bot/`, служба `nutricio-bot.service` (~170 МБ RAM, лимит 250 МБ).
+Исходники и деплой — в `Zerocoder/vibe-coding-agents/lessons/vca03-telegram-bot-api/nutricio-bot/`.
+Учитывать при оценке свободной памяти сервера (~1 ГБ всего).
+
+**Чистка 2026-10-13.** Сервер теперь только под учебные задачи по вайб-кодингу.
+Удалена сингапурская связка (отдельный `xray.service` с выходом в SOCKS-туннель
+`sg-tunnel.service` → `sg-hop`, ключ и `/root/.ssh/config`) — архив
+`/root/backup-sg-2026-10-13.tar.gz`. Отключены и замаскированы `fwupd`,
+`multipathd`, `ModemManager`, `udisks2`, `upower`. VPN пользователя — только
+`x-ui` (своё ядро xray на 443), его не трогать. Доступно RAM: было ~265 МБ, стало ~485 МБ.
+
 ## Развернуть с нуля
 
 Пошагово — в скилле проекта `.claude/skills/content-factory/SKILL.md`,
