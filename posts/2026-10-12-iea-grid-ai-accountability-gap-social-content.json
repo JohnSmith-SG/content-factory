@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-12",
   "priority": "normal",
   "source": {
     "title": "Modernising Grids in the Age of Electricity: Scaling digital technologies and AI for better use of existing networks (IEA, flagship report) — Executive summary и глава «AI-enhanced solutions»",
