@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-14",
   "priority": "normal",
   "source": {
     "title": "FRC Annual Review of Corporate Reporting 2025/26 (пресс-релиз FRC «Annual review recognises continued high standards of corporate reporting») + исследование FRC «The use of Artificial Intelligence Technologies in Corporate Reporting» (Lancaster University, июль 2026)",

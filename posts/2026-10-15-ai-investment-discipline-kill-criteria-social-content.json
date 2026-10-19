@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-15",
   "priority": "normal",
   "source": {
     "title": "AI governance: ten principles for effective board oversight (Accountancy Europe & ecoDa, briefing paper, October 2026) + сопутствующий опрос «The AI reality check: 5 insights from company directors»",
