@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-20",
   "priority": "normal",
   "source": {
     "title": "EY US AI Risk and Governance Survey (inaugural edition) — пресс-релиз «EY survey finds that autonomous AI implementation outpaces oversight, yielding an AI governance gap» + статья EY «AI governance has entered its next phase: closing the confidence gap»",

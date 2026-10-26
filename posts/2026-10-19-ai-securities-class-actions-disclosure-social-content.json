@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-19",
   "priority": "normal",
   "source": {
     "title": "Securities Class Action Filings—2026 Midyear Assessment (Cornerstone Research & Stanford Law School Securities Class Action Clearinghouse) — пресс-релиз «Securities Class Action Filings Surge in the First Half of 2026»",

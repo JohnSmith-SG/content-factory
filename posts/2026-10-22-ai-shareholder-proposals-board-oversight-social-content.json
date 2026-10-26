@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-22",
   "priority": "normal",
   "source": {
     "title": "Governing AI: Corporate Oversight and Shareholder Engagement (Harvard Law School Forum on Corporate Governance, пост Subodh Mishra, ISS STOXX; по материалам статьи ISS STOXX Research Institute, автор Joseph Hong, ISS-Corporate)",

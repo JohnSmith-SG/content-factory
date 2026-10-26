@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-21",
   "priority": "normal",
   "source": {
     "title": "MAS Sets Out Supervisory Expectations on Responsible AI Adoption by Financial Institutions (пресс-релиз Monetary Authority of Singapore) + Guidelines on Artificial Intelligence Risk Management for Financial Institutions (итоговый документ, вступает в силу 07.10.2027)",

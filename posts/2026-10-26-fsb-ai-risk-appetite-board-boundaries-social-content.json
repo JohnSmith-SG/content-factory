@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-26",
   "priority": "normal",
   "source": {
     "title": "FSB: Sound Practices for Responsible Adoption of Artificial Intelligence (AI) — Final report (Financial Stability Board, 15.10.2026)",

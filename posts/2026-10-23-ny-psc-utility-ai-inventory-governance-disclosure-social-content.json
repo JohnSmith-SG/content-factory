@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-23",
   "priority": "normal",
   "source": {
     "title": "New York State Public Service Commission, Case 26-M-0552 — Order Initiating Proceeding regarding an Examination of Artificial Intelligence Utilization in the Operations of Public Utilities and Other Regulated Entities (Issued and Effective September 17, 2026)",
