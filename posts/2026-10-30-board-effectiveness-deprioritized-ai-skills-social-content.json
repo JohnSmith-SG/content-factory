@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-30",
   "priority": "normal",
   "source": {
     "title": "2026 BDO Board Survey: Governance Under Pressure (BDO Center for Corporate Governance) — пресс-релиз «2026 BDO Survey: Boards Require Disciplined Prioritization As Pressures Increase»",

@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-02",
   "priority": "normal",
   "source": {
     "title": "ISS STOXX: Request for Comments on Proposed ISS Benchmark Policy Changes for 2027 (п. 22 «Global: Risk Oversight – Cybersecurity and AI») + пресс-релиз «ISS STOXX Launches Open Comment Period for Proposed 2027 Benchmark Voting Policy Changes»; для сравнения: Glass Lewis 2026 Benchmark Policy Guidelines – United States, раздел Board Oversight of Artificial Intelligence",

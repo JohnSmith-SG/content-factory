@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-10-29",
   "priority": "normal",
   "source": {
     "title": "FCA: AI in financial services: good practice and areas for improvement (Financial Conduct Authority, 19.10.2026)",
