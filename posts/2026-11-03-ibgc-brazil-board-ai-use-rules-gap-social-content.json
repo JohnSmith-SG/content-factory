@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-03",
   "priority": "normal",
   "source": {
     "title": "IBGC & FGVethics: «Inteligência Artificial, Governança e Ética nos Conselhos de Administração das Empresas Brasileiras» (презентация результатов в штаб-квартире IBGC, Сан-Паулу, 22.10.2026)",
