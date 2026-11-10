@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-04",
   "priority": "normal",
   "source": {
     "title": "The AI Risk Observatory: What Can We Learn from AI Disclosures in Annual Reports About Societal Resilience? (Bart Jaworski, Andrew Sutton; arXiv:2610.02281v2)",

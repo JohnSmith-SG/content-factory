@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-05",
   "priority": "normal",
   "source": {
     "title": "In re Cloudflare, Inc. Stockholder Litigation, Consol. C.A. No. 2026-0772-JTL (Del. Ch., Vice Chancellor Laster, decided 16.10.2026); разбор Wachtell Lipton «Cloudflare: Important Lessons for Conflict Transactions», Harvard Law School Forum on Corporate Governance, 28.10.2026",

@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-10",
   "priority": "normal",
   "source": {
     "title": "2026 Q3 Audit Committee Update (Pat Niemann, Jennifer Lee, EY Americas Center for Board Matters), Harvard Law School Forum on Corporate Governance, 22.10.2026; оригинал EY «2026 Q3 Audit committee update», 29.09.2026 + EY AI Pulse Survey, Wave 5 «The reckoning over AI cost and value has begun»",
