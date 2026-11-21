@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-20",
   "priority": "normal",
   "source": {
     "title": "AI risk is rising. Is your board keeping pace? (Grant Thornton, Audit insights; цитируются партнёры Tarun Kakar, Johnny Lee, Sumeet Mahajan, Jennifer Morelli) + Grant Thornton 2026 AI Impact Survey (пресс-релиз 13.04.2026)",

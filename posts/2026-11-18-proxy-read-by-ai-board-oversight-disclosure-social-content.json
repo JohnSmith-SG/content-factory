@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-18",
   "priority": "normal",
   "source": {
     "title": "When an Algorithm Reads Your Proxy and AI Is on the Ballot (Anteris Advisors; Brendan McVeigh, Ken Bertsch, Maddie Chisholm), Harvard Law School Forum on Corporate Governance",

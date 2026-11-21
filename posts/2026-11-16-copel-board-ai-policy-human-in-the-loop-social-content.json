@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-16",
   "priority": "normal",
   "source": {
     "title": "NPC 0301 Information Technology and Cybersecurity Policy, Version 16 dated 09/17/2026 (Copel, Companhia Paranaense de Energia) + Form 6-K: Certificate of the Minutes of the 278th Ordinary Meeting of the Board of Directors, 17.09.2026",

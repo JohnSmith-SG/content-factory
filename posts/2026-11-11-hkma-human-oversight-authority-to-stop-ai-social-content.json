@@ -1,6 +1,7 @@
 {
   "schema_version": "social-content/v1",
-  "status": "approved",
+  "status": "published",
+  "published_at": "2026-11-11",
   "priority": "normal",
   "source": {
     "title": "HKMA circular B1/15C «Responsible Adoption of Artificial Intelligence» + Annex A «Supervisory Guidance for Responsible Adoption of Artificial Intelligence» + Annex C «Concept Note on Governance of Agentic Artificial Intelligence» (Hong Kong Monetary Authority, 15.10.2026)",
